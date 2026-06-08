@@ -56,28 +56,28 @@ flowchart TD
     classDef frontend fill:#1e1e1e,stroke:#4FC08D,stroke-width:2px,color:#fff;
     classDef backend fill:#1e1e1e,stroke:#009688,stroke-width:2px,color:#fff;
     classDef database fill:#1e1e1e,stroke:#3ECF8E,stroke-width:2px,color:#fff;
-    classDef external fill:#1e1e1e,stroke:#888,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
+    classDef external fill:#1e1e1e,stroke:#888,stroke-width:2px,color:#fff;
     classDef ai fill:#1e1e1e,stroke:#412991,stroke-width:2px,color:#fff;
 
-    subgraph Offline["🛠️ Phase 1: Data Engineering & ETL Pipeline"]
+    subgraph Offline["Phase 1: Data Engineering and ETL Pipeline"]
         direction LR
-        CSV[/"Raw Cricsheet CSVs"\]:::external -->|Batch Processing| SEED("seed_db.py<br/>(Pandas Aggregation)"):::backend
-        MAP[/"overseas_players.json"\]:::external -->|Role & Origin Mappings| SEED
-        SEED -->|Upsert Stats & Profiles| DB[("Supabase<br/>PostgreSQL")]:::database
+        CSV[/Raw Cricsheet CSVs\]:::external -->|Batch Processing| SEED("seed_db.py<br/>(Pandas Aggregation)"):::backend
+        MAP[/overseas_players.json\]:::external -->|Role and Origin Mappings| SEED
+        SEED -->|Upsert Stats and Profiles| DB[("Supabase<br/>PostgreSQL")]:::database
     end
 
-    subgraph Online["⚡ Phase 2: Live Inference & App Flow"]
+    subgraph Online["Phase 2: Live Inference and App Flow"]
         direction TB
         UI1("DraftArena.vue<br/>(Vue 3 UI)"):::frontend -->|1. Fetch Initial Roster| DB
-        UI1 -->|2. POST /api/optimize (22 Drafted Players)| API{"FastAPI Router<br/>(main.py)"}:::backend
+        UI1 -->|2. POST api/optimize - 22 Drafted Players| API{"FastAPI Router<br/>(main.py)"}:::backend
         
         API -->|3. Player Features| ML("ML Service<br/>(Scikit-Learn Model)"):::backend
         ML -.->|Predicted Fantasy Points| API
         
-        API -->|4. Pts + Budget Constraints| ILP("ILP Optimizer<br/>(PuLP Solver)"):::backend
+        API -->|4. Pts and Budget Constraints| ILP("ILP Optimizer<br/>(PuLP Solver)"):::backend
         ILP -.->|Mathematically Optimal 11| API
         
-        API -->|5. Optimal Squad + Benched| AGENT("LLM Agent<br/>(llm_agent.py)"):::backend
+        API -->|5. Optimal Squad and Benched| AGENT("LLM Agent<br/>(llm_agent.py)"):::backend
         AGENT <-->|6. Prompt Completion| GPT[["OpenAI API<br/>(gpt-4o-mini)"]]:::ai
         
         API -->|7. Final JSON Payload| UI2("OptimizationResults.vue<br/>(Glassmorphic UI)"):::frontend
