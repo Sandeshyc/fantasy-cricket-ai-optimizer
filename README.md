@@ -1,3 +1,5 @@
+[![Fantasy Cricket AI Demo](https://cdn.loom.com/sessions/thumbnails/aa4c6df6b4a64f63b9c2f2b87dd1a2cc-with-play.gif)](https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc)
+
 # 🏏 Fantasy Cricket AI Optimizer
 
 [![Vue 3](https://img.shields.io/badge/Vue.js-3.0-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org/)
