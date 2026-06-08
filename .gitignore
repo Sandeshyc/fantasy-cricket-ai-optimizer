@@ -1,0 +1,26 @@
+# Virtual Environments
+venv/
+env/
+.env
+
+# Node modules
+node_modules/
+dist/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs
+*.log
+
+# Cricsheet raw data (to save repo size)
+backend/ipl_raw_data/
+backend/ipl_data.zip
