@@ -61,26 +61,26 @@ flowchart TD
 
     subgraph Offline["🛠️ Phase 1: Data Engineering & ETL Pipeline"]
         direction LR
-        CSV[/"Raw Cricsheet CSVs"\]:::external -->|Batch Processing| SEED("seed_db.py\n(Pandas Aggregation)"):::backend
+        CSV[/"Raw Cricsheet CSVs"\]:::external -->|Batch Processing| SEED("seed_db.py<br/>(Pandas Aggregation)"):::backend
         MAP[/"overseas_players.json"\]:::external -->|Role & Origin Mappings| SEED
-        SEED -->|Upsert Stats & Profiles| DB[("Supabase\nPostgreSQL")]:::database
+        SEED -->|Upsert Stats & Profiles| DB[("Supabase<br/>PostgreSQL")]:::database
     end
 
     subgraph Online["⚡ Phase 2: Live Inference & App Flow"]
         direction TB
-        UI1("DraftArena.vue\n(Vue 3 UI)"):::frontend -->|1. Fetch Initial Roster| DB
-        UI1 -->|2. POST /api/optimize\n(22 Drafted Players)| API{"FastAPI Router\n(main.py)"}:::backend
+        UI1("DraftArena.vue<br/>(Vue 3 UI)"):::frontend -->|1. Fetch Initial Roster| DB
+        UI1 -->|2. POST /api/optimize (22 Drafted Players)| API{"FastAPI Router<br/>(main.py)"}:::backend
         
-        API -->|3. Player Features| ML("ML Service\n(Scikit-Learn Model)"):::backend
+        API -->|3. Player Features| ML("ML Service<br/>(Scikit-Learn Model)"):::backend
         ML -.->|Predicted Fantasy Points| API
         
-        API -->|4. Pts + Budget Constraints| ILP("ILP Optimizer\n(PuLP Solver)"):::backend
+        API -->|4. Pts + Budget Constraints| ILP("ILP Optimizer<br/>(PuLP Solver)"):::backend
         ILP -.->|Mathematically Optimal 11| API
         
-        API -->|5. Optimal Squad + Benched| AGENT("LLM Agent\n(llm_agent.py)"):::backend
-        AGENT <-->|6. Prompt Completion| GPT[["OpenAI API\n(gpt-4o-mini)"]]:::ai
+        API -->|5. Optimal Squad + Benched| AGENT("LLM Agent<br/>(llm_agent.py)"):::backend
+        AGENT <-->|6. Prompt Completion| GPT[["OpenAI API<br/>(gpt-4o-mini)"]]:::ai
         
-        API -->|7. Final JSON Payload| UI2("OptimizationResults.vue\n(Glassmorphic UI)"):::frontend
+        API -->|7. Final JSON Payload| UI2("OptimizationResults.vue<br/>(Glassmorphic UI)"):::frontend
     end
     
     Offline ~~~ Online
