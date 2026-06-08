@@ -1,4 +1,12 @@
 [![Fantasy Cricket AI Demo]](https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc)
+<div>
+    <a href="https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc">
+      <p>AI Fantasy Cricket Optimizer With ILP - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc">
+      <img width="300" src="https://cdn.loom.com/sessions/thumbnails/aa4c6df6b4a64f63b9c2f2b87dd1a2cc-5ff3855420f0a72a-full-play.gif">
+    </a>
+</div>
 
 # 🏏 Fantasy Cricket AI Optimizer
 
