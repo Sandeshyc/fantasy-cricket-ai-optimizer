@@ -1,4 +1,4 @@
-[![Fantasy Cricket AI Demo](https://cdn.loom.com/sessions/thumbnails/aa4c6df6b4a64f63b9c2f2b87dd1a2cc-with-play.gif)](https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc)
+[![Fantasy Cricket AI Demo]](https://www.loom.com/share/aa4c6df6b4a64f63b9c2f2b87dd1a2cc)
 
 # 🏏 Fantasy Cricket AI Optimizer
 
